@@ -28,7 +28,7 @@ version_added: "1.0"
 author: Niranjan Bommu
 short_description: Notify appneta about app deployments
 description:
-   - Notify appneta about app deployments (see http://http://dev.appneta.com/docs/api-v2/annotations.html)
+   - Notify appneta about app deployments (see http://dev.appneta.com/docs/api-v2/annotations.html)
 options:
   key:
     description:
