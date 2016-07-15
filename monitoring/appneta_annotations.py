@@ -24,7 +24,7 @@ along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
 DOCUMENTATION = '''
 
 module: appneta_annotations
-version_added: "1.0"
+version_added: "2.2"
 author: Niranjan Bommu
 short_description: Notify appneta about app deployments
 description:
@@ -37,7 +37,7 @@ options:
   appname:
     description:
       - Name of the application
-    required: false
+    required: true
   message:
     description:
       - Text annotation for the deployment
@@ -63,8 +63,8 @@ EXAMPLES = '''
 '''
 
 import json
-from urllib import urlencode
-from urllib2 import urlopen, URLError
+from urllib.parse import urlencode
+from urllib.request import urlopen, URLError
 
 # ===========================================
 # Module execution.
@@ -76,7 +76,7 @@ def main():
         argument_spec=dict(
             key=dict(required=True),
             message=dict(required=True),
-            appname=dict(required=False),
+            appname=dict(required=True),
             hostname=dict(required=False),
             username=dict(required=False),
         ),
