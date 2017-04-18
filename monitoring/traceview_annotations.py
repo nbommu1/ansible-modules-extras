@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Ansible module to add appneta annotations.
+Ansible module to add traceview annotations.
 
 (c) 2015, Niranjan Bommu <niranjan.bommu@gmail.com>
 
@@ -23,12 +23,12 @@ along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
 """
 DOCUMENTATION = '''
 
-module: appneta_annotations
-version_added: "2.2"
+module: traceview_annotations
+version_added: "2.3"
 author: Niranjan Bommu
-short_description: Notify appneta about app deployments
+short_description: Notify traceview about app deployments
 description:
-   - Notify appneta about app deployments (see http://dev.appneta.com/docs/api-v2/annotations.html)
+   - Notify traceview about app deployments (see http://dev.appneta.com/docs/api-v2/annotations.html)
 options:
   key:
     description:
@@ -55,7 +55,7 @@ requirements: [ urllib, urllib2 ]
 '''
 
 EXAMPLES = '''
-- appneta_deployment: key=AAAAAA
+- traceview_annotations: key=AAAAAA
                       message='message'
                       appname=myapp
                       hostname='hostname'
@@ -98,7 +98,7 @@ def main():
     if module.check_mode:
         module.exit_json(changed=True)
 
-    # Send the data to appneta
+    # Send the data to traceview aka appneta
     try:
        req = urlopen("https://api.tv.appneta.com/api-v2/log_message", urlencode(params))
        module.exit_json(changed=True)
